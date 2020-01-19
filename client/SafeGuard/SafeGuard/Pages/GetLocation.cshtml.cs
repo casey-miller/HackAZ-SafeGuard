@@ -16,7 +16,7 @@ namespace SafeGuard.Pages
         }
         public void OnGet()
         {
-            
+
         }
         [BindProperty]
         public Models.Location Location { get; set; }
