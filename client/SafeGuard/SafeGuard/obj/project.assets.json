@@ -13237,7 +13237,7 @@
       "outputPath": "/home/casey/Source/casey-github/HackAZ-SafeGuard/client/SafeGuard/SafeGuard/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/casey/.config/NuGet/NuGet.Config"
+        "/home/casey/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"

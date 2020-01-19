@@ -7,6 +7,13 @@ namespace SafeGuard.Pages
 {
     public class GetLocation : PageModel
     {
+
+        private readonly Data.LocationDbContext _context;
+
+        public GetLocation(Data.LocationDbContext context)
+        {
+            _context = context;
+        }
         public void OnGet()
         {
             
@@ -20,15 +27,10 @@ namespace SafeGuard.Pages
             {
                 return Page();
             }
-            
-            HttpClient httpClient = new HttpClient();  
-            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Put, "http://yoursitehere/");  
-            requestMessage.Headers.Add("username", Location.UserName);  
-            requestMessage.Headers.Add("latitude", Location.Latitude);  
-            requestMessage.Headers.Add("longitude", Location.Longitude);
-            requestMessage.Headers.Add("user_choice", Location.UserChoice);  
-            HttpResponseMessage response = await httpClient.SendAsync(requestMessage);
-            return RedirectToPage("./Index");
+
+            _context.Location.Add(Location);
+            await _context.SaveChangesAsync();
+            return RedirectToPage("./GetLocation");
         }
     }
 }
